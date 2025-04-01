@@ -38,5 +38,9 @@ def process_excel(file_path):
     print("Datos insertados correctamente.")
 
 if __name__ == "__main__":
-    file_path = sys.argv[1]
-    process_excel(file_path)
+    if len(sys.argv) < 2:
+        print("Error: Debes proporcionar el archivo Excel como argumento.")
+        sys.exit(1)  # Salir del programa con un código de error
+    
+file_path = sys.argv[1]  # Obtener el primer argumento
+process_excel(file_path)
