@@ -9,6 +9,8 @@ import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 import { Notes } from "./pages/Notes";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { ExcelUploader } from "./pages/cargarexcel";
+
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
