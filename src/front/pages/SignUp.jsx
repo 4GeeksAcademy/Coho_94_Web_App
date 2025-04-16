@@ -3,7 +3,6 @@ import { useNavigate, Link } from "react-router-dom";
 
 export const Signup = () => {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -50,6 +49,8 @@ export const Signup = () => {
       setIsLoading(false);
     }
   };
+
+  
 
   return (
     <div className="container mt-5">

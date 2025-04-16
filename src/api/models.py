@@ -61,6 +61,19 @@ class User(db.Model):
             # No serializar la contraseña por seguridad
         }
 
+    def serialize_dashboard(self):
+        # Obtenemos la última nota por fecha de creación usando order_by
+        last_note = Note.query.filter_by(user_id=self.id).order_by(Note.created_at.desc()).first()
+
+        # Serializamos la última nota si existe
+        last_note_serialized = last_note.serialize() if last_note else None
+
+        return {
+            "id": self.id,
+            "nombre": self.email,  # Cambié self.name a self.email ya que User no tiene atributo name
+            "last_note": last_note_serialized
+        }
+
 class Note(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column(String(100), nullable=False)
